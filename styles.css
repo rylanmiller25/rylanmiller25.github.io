@@ -489,6 +489,7 @@ body {
   transition: background 0.15s ease, color 0.15s ease;
 }
 .cv-download svg { width: 18px; height: 18px; }
+.cv-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .cv-download:hover { background: var(--accent); color: #ffffff; }
 
 .cv-section { margin-top: 40px; }
