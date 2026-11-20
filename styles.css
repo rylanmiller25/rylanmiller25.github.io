@@ -1,5 +1,5 @@
-/* ── Rylan Miller portfolio — light / zinc palette, Expected Parrot green ───── */
-/* Palette inspired by expectedparrot.com (zinc grays + green accent),         */
+/* ── Rylan Miller portfolio — light / zinc palette, red accent ────────────── */
+/* Zinc grays + the red (#C00000) used in Rylan's slide decks,                 */
 /* with a Newsreader/Inter type pairing (distinct from their Source Serif/Jakarta). */
 :root {
   --bg:           #ffffff;   /* page background: white */
@@ -10,9 +10,9 @@
   --muted:        #71717a;   /* muted text (zinc-500) */
   --border:       #e4e4e7;   /* hairline dividers / borders (zinc-200) */
 
-  --accent:       #009945;   /* Expected Parrot green, legible on white */
-  --accent-hover: #006b30;   /* deep green for hover */
-  --accent-soft:  #e8f7ee;   /* pale green tint */
+  --accent:       #c00000;   /* slide-deck red, legible on white */
+  --accent-hover: #8f0000;   /* deep red for hover */
+  --accent-soft:  #fbeaea;   /* pale red tint */
 
   --font-head:  "Newsreader", Georgia, "Times New Roman", serif;
   --font-body:  "Inter", -apple-system, "Helvetica Neue", Helvetica, sans-serif;
@@ -70,7 +70,7 @@ body {
 
 .nav a.active {
   color: var(--accent);
-  border-bottom-color: var(--accent);   /* green underline on the current page */
+  border-bottom-color: var(--accent);   /* red underline on the current page */
 }
 
 /* ── hero (homepage body) ──────────────────────────────────────────────────── */
@@ -106,6 +106,15 @@ body {
   font-weight: 500;
   white-space: nowrap;
   color: var(--text-soft);
+}
+
+.affiliation {
+  margin-top: 6px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 400;
+  white-space: nowrap;
+  color: var(--muted);
 }
 
 .divider {
@@ -194,7 +203,7 @@ body {
   line-height: 1.1;
   color: var(--text);
   padding-bottom: 10px;
-  border-bottom: 4px solid var(--accent);   /* thick green underline */
+  border-bottom: 4px solid var(--accent);   /* thick red underline */
 }
 
 .page-lead {
@@ -307,11 +316,11 @@ body {
 }
 .contact-link:hover .contact-handle { color: var(--accent); }
 
-/* about page: long green rule + left contact rail + right body */
+/* about page: long red rule + left contact rail + right body */
 .section-rule {
   border: none;
   height: 2px;
-  background: var(--accent);              /* long green line */
+  background: var(--accent);              /* long red line */
   width: calc(100% - 44px);               /* a touch shorter on the right */
   margin: 0 0 40px 0;
 }
@@ -341,7 +350,7 @@ body {
   letter-spacing: -0.01em;
   color: var(--text);
   padding-bottom: 7px;
-  border-bottom: 3px solid var(--accent);   /* slightly thinner green underline */
+  border-bottom: 3px solid var(--accent);   /* slightly thinner red underline */
 }
 
 .contact-aside .contact-list { margin-top: 22px; }
@@ -479,7 +488,7 @@ body {
   display: block;
   width: 52px;
   height: 3px;
-  background: var(--accent);          /* green line between title and blurb */
+  background: var(--accent);          /* red line between title and blurb */
   border-radius: 2px;
   margin: 14px 0 16px;
 }
@@ -520,7 +529,7 @@ body {
 }
 .toggle-half + .toggle-half { border-left: 1px solid #d4d4d8; }
 
-/* toggled (active) half: darker, brand green */
+/* toggled (active) half: darker, brand red */
 #mode-nontech:checked ~ .explainer-toggle label[for="mode-nontech"],
 #mode-tech:checked ~ .explainer-toggle label[for="mode-tech"] {
   background: rgba(63, 63, 70, 0.78);  /* dark grey active half, more see-through */
@@ -664,7 +673,7 @@ body {
 
 .beta-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 16px rgba(0, 153, 69, 0.1);
+  box-shadow: 0 4px 16px rgba(192, 0, 0, 0.1);
 }
 
 .beta-card-label {
@@ -1213,7 +1222,7 @@ body {
 
 .chat-msg.user .chat-bubble {
   background: var(--accent-soft);
-  border: 1px solid rgba(0, 153, 69, 0.2);
+  border: 1px solid rgba(192, 0, 0, 0.2);
 }
 
 .chat-msg.ai .chat-bubble {
