@@ -1,6 +1,6 @@
 /* ── Rylan Miller portfolio — light / zinc palette, red accent ────────────── */
 /* Zinc grays + the red (#C00000) used in Rylan's slide decks,                 */
-/* with a Newsreader/Inter type pairing (distinct from their Source Serif/Jakarta). */
+/* with Libre Franklin throughout.                                              */
 :root {
   --bg:           #ffffff;   /* page background: white */
   --surface:      #fafafa;   /* subtle off-white (zinc-50) */
@@ -14,8 +14,8 @@
   --accent-hover: #8f0000;   /* deep red for hover */
   --accent-soft:  #fbeaea;   /* pale red tint */
 
-  --font-head:  "Newsreader", Georgia, "Times New Roman", serif;
-  --font-body:  "Inter", -apple-system, "Helvetica Neue", Helvetica, sans-serif;
+  --font-head:  "Libre Franklin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:  "Libre Franklin", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -547,6 +547,22 @@ body {
   color: var(--accent);
   font-weight: 600;
 }
+/* status line under each paper: small indented bullet */
+.cv-list .cv-status { list-style: none; margin-top: 4px; padding-left: 1.1em; }
+.cv-list .cv-status li {
+  counter-increment: none;
+  padding-left: 1em;
+  font-size: 0.96rem;
+  color: var(--muted);
+}
+.cv-list .cv-status li::before {
+  content: "•";
+  left: 0;
+  color: var(--muted);
+  font-weight: 400;
+}
+.cv-list .cv-status li + li { margin-top: 2px; }
+
 @media (max-width: 600px) {
   .cv-row { flex-direction: column; gap: 2px; }
 }
