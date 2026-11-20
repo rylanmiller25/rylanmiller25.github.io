@@ -1620,3 +1620,49 @@ body {
   .exam-main { border-right: none; border-bottom: 1px solid var(--border); min-height: auto; }
   .chat-panel { flex: none; min-height: 420px; }
 }
+
+/* ── ideas page: shaded panel with Simple / Technical toggle ───────────────── */
+.ideas-panel {
+  margin-top: 36px;
+  background: #f4f4f5;                 /* same light gray as the About contact rail */
+  border: 2px solid #d4d4d8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.ideas-toggle {
+  display: flex;
+  border-bottom: 2px solid #d4d4d8;
+}
+.ideas-toggle button {
+  flex: 1;
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+  background: #e4e4e7;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.ideas-toggle button + button { border-left: 2px solid #d4d4d8; }
+.ideas-toggle button:hover { color: var(--accent); }
+.ideas-toggle button[aria-selected="true"] {
+  background: var(--accent);
+  color: #ffffff;
+}
+.ideas-toggle button:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+.ideas-view {
+  padding: 40px 48px;
+  min-height: 420px;
+}
+.ideas-empty {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 760px;
+}
+@media (max-width: 600px) {
+  .ideas-view { padding: 28px 20px; min-height: 300px; }
+}

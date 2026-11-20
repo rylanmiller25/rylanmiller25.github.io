@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <header class="site-header">
@@ -24,7 +24,38 @@
 
   <main class="page">
     <h1 class="portfolio-headline">Ideas</h1>
+
+    <section class="ideas-panel">
+      <div class="ideas-toggle" role="tablist" aria-label="Explanation level">
+        <button type="button" role="tab" id="tab-simple" aria-controls="view-simple" aria-selected="true">Simple</button>
+        <button type="button" role="tab" id="tab-technical" aria-controls="view-technical" aria-selected="false">Technical</button>
+      </div>
+
+      <div class="ideas-view" id="view-simple" role="tabpanel" aria-labelledby="tab-simple">
+        <p class="ideas-empty">Plain-language explanations of each thought experiment &ndash; the model, its assumptions, and what it finds &ndash; are coming soon.</p>
+      </div>
+
+      <div class="ideas-view" id="view-technical" role="tabpanel" aria-labelledby="tab-technical" hidden>
+        <p class="ideas-empty">Technical write-ups of each model &ndash; full assumptions, the math, and all results &ndash; are coming soon.</p>
+      </div>
+    </section>
   </main>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.ideas-toggle [role="tab"]');
+      function show(id) {
+        tabs.forEach(function (t) {
+          var on = t.id === id;
+          t.setAttribute('aria-selected', on);
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+        try { history.replaceState(null, '', id === 'tab-technical' ? '#technical' : '#simple'); } catch (e) {}
+      }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.id); }); });
+      if (location.hash === '#technical') show('tab-technical');
+    })();
+  </script>
 
   <footer class="site-footer">
     <div class="footer-inner">
