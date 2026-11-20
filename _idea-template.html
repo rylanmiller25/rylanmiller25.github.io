@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea title — Rylan Miller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=10">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Rylan Miller</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="cv.html">CV</a>
+      <a href="data.html">Data</a>
+      <a href="ideas.html" class="active">Ideas</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <a class="idea-back" href="ideas.html">&larr; All ideas</a>
+    <h1 class="idea-title">Idea title</h1>
+    <p class="idea-summary">A brief explanation of the model: the question it asks and why it matters, in two or three sentences.</p>
+    <section class="ideas-panel">
+      <div class="ideas-toggle" role="tablist" aria-label="Explanation level">
+        <button type="button" role="tab" id="tab-simple" aria-controls="view-simple" aria-selected="true">Simple</button>
+        <button type="button" role="tab" id="tab-technical" aria-controls="view-technical" aria-selected="false">Technical</button>
+      </div>
+
+      <div class="ideas-view" id="view-simple" role="tabpanel" aria-labelledby="tab-simple">
+        <p class="ideas-empty">Simple explanation: the model, its assumptions, and its findings.</p>
+      </div>
+
+      <div class="ideas-view" id="view-technical" role="tabpanel" aria-labelledby="tab-technical" hidden>
+        <p class="ideas-empty">Technical explanation: the model, its assumptions, the math, and all findings.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.ideas-toggle [role="tab"]');
+      function show(id) {
+        tabs.forEach(function (t) {
+          var on = t.id === id;
+          t.setAttribute('aria-selected', on);
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+        try { history.replaceState(null, '', id === 'tab-technical' ? '#technical' : '#simple'); } catch (e) {}
+      }
+      tabs.forEach(function (t) { t.addEventListener('click', function () { show(t.id); }); });
+      if (location.hash === '#technical') show('tab-technical');
+    })();
+  </script>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-cols" aria-label="Footer">
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <a href="index.html">Home</a>
+          <a href="research.html">Research</a>
+          <a href="cv.html">CV</a>
+          <a href="data.html">Data</a>
+          <a href="ideas.html">Ideas</a>
+          <a href="about.html">About</a>
+          <a href="about.html#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <a href="mailto:rylan@umd.edu">Email</a>
+          <a href="https://github.com/rylanmiller25" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/miller-rylan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">© 2026 Rylan Miller</div>
+  </footer>
+</body>
+</html>
