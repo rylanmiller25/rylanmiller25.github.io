@@ -465,6 +465,92 @@ body {
   text-align: center;
 }
 
+/* ── CV page ───────────────────────────────────────────────────────────────── */
+.cv { max-width: 880px; }
+.cv-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.cv-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.cv-download svg { width: 18px; height: 18px; }
+.cv-download:hover { background: var(--accent); color: #ffffff; }
+
+.cv-section { margin-top: 40px; }
+.cv-section h2 {
+  font-family: var(--font-head);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.cv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+.cv-row + .cv-row, .cv-sub + .cv-row { margin-top: 14px; }
+.cv-row strong, .cv-line strong { color: var(--text); font-weight: 600; }
+.cv-date { flex-shrink: 0; color: var(--muted); font-size: 0.95rem; white-space: nowrap; }
+.cv-sub {
+  margin-top: 6px;
+  padding-left: 16px;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+.cv-line {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+.cv-line + .cv-line { margin-top: 10px; }
+.cv-list {
+  list-style: none;
+  counter-reset: cv;
+}
+.cv-list li {
+  counter-increment: cv;
+  position: relative;
+  padding-left: 2.2em;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+  text-wrap: pretty;
+}
+.cv-list li + li { margin-top: 12px; }
+.cv-list li::before {
+  content: "[" counter(cv) "]";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .cv-row { flex-direction: column; gap: 2px; }
+}
+
 /* ── portfolio project grid ────────────────────────────────────────────────── */
 .portfolio-headline {
   font-family: var(--font-head);
